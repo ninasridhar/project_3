@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @post.user_id
+%p
+  %b Summary:
+  = @post.summary
+%p
+  %b Title:
+  = @post.title
+%p
+  %b Servings:
+  = @post.servings
+%p
+  %b Course:
+  = @post.course
+%p
+  %b Category:
+  = @post.category
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Back', posts_path

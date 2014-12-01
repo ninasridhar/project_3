@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @bookmark.user_id
+%p
+  %b Post:
+  = @bookmark.post_id
+%p
+  %b Bookmarked:
+  = @bookmark.bookmarked
+%p
+  %b Favourited:
+  = @bookmark.favourited
+
+= link_to 'Edit', edit_bookmark_path(@bookmark)
+\|
+= link_to 'Back', bookmarks_path

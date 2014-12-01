@@ -1,0 +1,16 @@
+= form_for @ingredient do |f|
+  - if @ingredient.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ingredient.errors.count, "error")} prohibited this ingredient from being saved:"
+      %ul
+        - @ingredient.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :post_id
+    = f.number_field :post_id
+  .field
+    = f.label :ingredient
+    = f.text_field :ingredient
+  .actions
+    = f.submit 'Save'

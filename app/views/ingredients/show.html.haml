@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Post:
+  = @ingredient.post_id
+%p
+  %b Ingredient:
+  = @ingredient.ingredient
+
+= link_to 'Edit', edit_ingredient_path(@ingredient)
+\|
+= link_to 'Back', ingredients_path
