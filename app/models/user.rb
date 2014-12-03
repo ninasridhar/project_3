@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
   has_many :bookmarks
   has_many :comments
   has_many :posts
-  has_many :photos, through :posts
+  has_many :photos, through: :posts
 end

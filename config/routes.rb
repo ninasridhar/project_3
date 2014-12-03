@@ -1,4 +1,10 @@
 Project3::Application.routes.draw do
+  resources :courses
+
+
+  resources :categories
+
+
   devise_for :users
 
   resources :photos

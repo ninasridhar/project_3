@@ -1,28 +1,15 @@
 %h1 Listing posts
 
-%table
-  %tr
-    %th User
-    %th Summary
-    %th Title
-    %th Servings
-    %th Course
-    %th Category
-    %th
-    %th
-    %th
+%div
 
   - @posts.each do |post|
-    %tr
-      %td= post.user_id
-      %td= post.summary
-      %td= post.title
-      %td= post.servings
-      %td= post.course
-      %td= post.category
-      %td= link_to 'Show', post
-      %td= link_to 'Edit', edit_post_path(post)
-      %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .row 
+      .col-md-6.col-md-offset-3
+        %h4= post.user.name
+        %p= post.summary
+        %div= link_to 'Show', post
+        %div= link_to 'Edit', edit_post_path(post)
+        %div= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

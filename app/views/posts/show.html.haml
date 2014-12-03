@@ -2,7 +2,7 @@
 
 %p
   %b User:
-  = @post.user_id
+  = @post.user.name
 %p
   %b Summary:
   = @post.summary
@@ -10,14 +10,17 @@
   %b Title:
   = @post.title
 %p
+  %b Method:
+  = @post.method
+%p
   %b Servings:
   = @post.servings
 %p
   %b Course:
-  = @post.course
+  = @post.course.name
 %p
   %b Category:
-  = @post.category
+  = @post.category.name
 
 = link_to 'Edit', edit_post_path(@post)
 \|
