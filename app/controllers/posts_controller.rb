@@ -2,8 +2,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-
+    # @posts = Post.all
+    @q = Post.search(params[:q])
+    @posts = @q.result.includes(:categories)
+    @posts = @q.result.includes(:courses)
+    @posts = @q.result.includes(:ingredients)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
