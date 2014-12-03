@@ -12,6 +12,7 @@ gem 'faker'
 gem 'bourbon'
 gem 'bootstrap-sass'
 gem 'simple_hashtag'
+gem 'angularjs-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
