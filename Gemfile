@@ -12,7 +12,11 @@ gem 'faker'
 gem 'bourbon'
 gem 'bootstrap-sass'
 gem 'simple_hashtag'
+<<<<<<< HEAD
 gem 'ransack'
+=======
+gem 'angularjs-rails'
+>>>>>>> angular_set_up
 
 # Gems used only for assets and not required
 # in production environments by default.
