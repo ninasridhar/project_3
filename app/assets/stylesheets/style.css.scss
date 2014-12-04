@@ -1,10 +1,25 @@
 body{
   background-color: white;
-    .nav{
-      background: rgb(78, 78, 78);
-      height: 60px;
+  padding:0;
+  margin:0;
+  font-family: 'Fredericka the Great', cursive;
+  
+  .nav{
+    background: rgb(78, 78, 78);
+    height: 60px;
+    color: white;
+    width: 100%;
+    margin-top: -10px;
+    z-index: 1;
+    position: fixed;
+    line-height: 16px;
+    a{
+      color: white;
+      font-size: 16px;
+      margin-left: 10px;
     }
-    .row{
+  }
+  .row{
     width: 50%;
     background: rgb(206, 236, 232);
     border: 1px solid rgb(113, 167, 171);
