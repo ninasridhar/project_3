@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_filter :set_course, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @courses = Course.all

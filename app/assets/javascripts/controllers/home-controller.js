@@ -1,22 +1,13 @@
-app.controller('HomeController', function($scope, $http){
+// app.controller('HomeController', function($scope, $http){
+// });
+app.controller('HomeController', function($scope, $http, $rootScope){
+  $scope.categories = $rootScope.categories
+  
+  $http.get('/categories.json').success(function(data){
+    $scope.categories = data;
+  })
 
   $http.get('/posts.json').success(function(data){
-    $scope.posts = data; 
-  });
-   
-  $scope.selectPost = function(post){
-      $scope.selectedPost = post;
-  };
-
-  $scope.clearSelectedPost = function(){
-    $scope.selectedPost = false;
-  };
+    $scope.posts = data;
+  })
 });
-
-app.directive('postsList', function(){
-  return {
-    restrict: 'AEC',
-    templateUrl: "<%= asset_path('list.html')%>"
-  };
-});
-

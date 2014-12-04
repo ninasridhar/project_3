@@ -18,14 +18,30 @@ body{
       margin-left: 10px;
     }
   }
+  .container{
+    width: 100%;
+    margin: 10px auto;
+  }
   p{
     font-family: 'Vollkorn';
   }
-  .row{
+  .posts{
     background: rgb(206, 236, 232);
     border: 1px solid rgb(113, 167, 171);
     border-radius: 10px;
     padding: 10px;
+    margin-top: 10px;
+  }
+  img{
+    width: 10em;
+    height: 10em;
+    border: 1px solid black;
+    border-radius: 100%;
+  }
+  .user_box{
+    background: rgb(206, 236, 232);
+    border: 1px solid rgb(113, 167, 171);
+    border-radius: 10px;
     margin-top: 10px;
   }
 }
