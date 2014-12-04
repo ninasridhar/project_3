@@ -2,6 +2,8 @@
 <html ng-app="potLuckApp">
   <head>
     <title>Project3</title>
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -12,8 +14,8 @@
       <% if current_user %>
         <%= link_to 'Log Out', destroy_user_session_path, method: :delete  %>
       <% else %>
-        <%= link_to 'Login', new_user_session_path %>
-        <%= link_to 'Sign up', new_user_registration_path %>
+        <%= link_to 'Login', new_user_session_path, target: "_self" %>
+        <%= link_to 'Sign up', new_user_registration_path, target: "_self" %>
       <% end %>
     </div>
     <p class="notice">
@@ -22,6 +24,9 @@
     <p class="alert">
       <%= alert %>
     </p>
-    <div ng-view></div>
+    <%# if user_signed_in?%>
+      <div ng-view></div>
+    <%# end %>
+    <%#= yield %>
   </body>
 </html>

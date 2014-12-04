@@ -4,6 +4,20 @@ app.config(function($routeProvider, $locationProvider){
     controller: 'HomeController',
     templateUrl: "<%= asset_path('list.html')%>"
   });
+
+  $routeProvider.when('/users/login', {
+    controller: 'HomeController',
+  });
+  $routeProvider.when('/users/sign_up', {
+    controller: 'HomeController',
+  });
+  $routeProvider.when('/users/edit', {
+    controller: 'HomeController',
+  });
+
   $locationProvider.html5Mode(true);
+  $routeProvider.otherwise({
+    redirectTo: '/'
+  });
 });
 
