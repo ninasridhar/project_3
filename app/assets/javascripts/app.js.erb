@@ -1,0 +1,9 @@
+var app = angular.module('potLuckApp', ['ngAnimate', 'ngRoute']);
+app.config(function($routeProvider, $locationProvider){
+  $routeProvider.when('/', {
+    controller: 'HomeController',
+    templateUrl: "<%= asset_path('list.html')%>"
+  });
+  $locationProvider.html5Mode(true);
+});
+
