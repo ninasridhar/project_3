@@ -1,4 +1,28 @@
 var app = angular.module('potLuckApp', ['ngAnimate', 'ngRoute']);
+
+app.filter("customFilter", function(){
+    return function(input, searchText){
+         var returnArray = [];
+         var searchTextSplit = searchText.toLowerCase().split(' ');
+        for(var x = 0; x < input.length; x++){
+             var count = 0;
+            for(var y = 0; y < searchTextSplit.length; y++){
+                if(input[x].toLowerCase().indexOf(searchTextSplit[y]) !== -1){
+                    count++;
+                }
+            }
+            if(count == searchTextSplit.length){
+                 returnArray.push(input[x]);   
+            }
+        }
+        return returnArray;
+    }
+});
+function HomeController($scope){
+    $scope.data = []
+}
+
+
 app.config(function($routeProvider, $locationProvider){
   $routeProvider.when('/', {
     controller: 'HomeController',
@@ -19,5 +43,6 @@ app.config(function($routeProvider, $locationProvider){
   $routeProvider.otherwise({
     redirectTo: '/'
   });
+
 });
 

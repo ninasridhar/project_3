@@ -5,9 +5,9 @@ app.controller('HomeController', function($scope, $http, $rootScope){
   
   $http.get('/categories.json').success(function(data){
     $scope.categories = data;
-  })
+  });
 
   $http.get('/posts.json').success(function(data){
     $scope.posts = data;
-  })
+  });
 });
