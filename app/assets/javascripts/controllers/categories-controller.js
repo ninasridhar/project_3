@@ -16,5 +16,4 @@ app.controller('CategoryController', function($scope, $http, $rootScope){
   $http.get('/categories.json').success(function(data){
    $rootScope.categories = data; 
  });
-
 });

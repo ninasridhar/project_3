@@ -4,12 +4,12 @@
   </div>
 
   <div class = "col-md-6" >
-    <div class = "posts" ng-repeat="post in posts" ng-controller = "PostsController" >
+    <div class = "posts" ng-repeat="post in posts" ng-controller = "PostsController" ng-class = "{selectedpost: post === selectedPost}" >
       <div ng-click = 'selectPost(post)' ng-hide = "post === selectedPost">
-        <h4>{{post.user.name}}</h4>
+        <h4>@{{post.user.username}}</h4>
         <p>{{post.summary}}</p>
       </div>
-      <div  ng-click = "clearSelectedPost()" ng-show="post === selectedPost">
+      <div  ng-click = "clearSelectedPost()" ng-show="post === selectedPost" >
         <h4>{{post.title}}</h4>
         <p>
           Added by: {{post.user.name}}
@@ -30,11 +30,21 @@
     </div>
   </div>
 
-  <div ng-controller = "CategoryController" class = " user_box col-md-3" >
+  <div  class = " user_box col-md-3" >
+    <div ng-controller = "CategoryController">
     <img src="#" class = "img-circle ">
 
     <div ng-repeat="category in $root.categories">
       <h4>{{category.name}}</h4>
     </div>
+    </div>
+    <hr>
+    <div ng-controller = "CourseController">
+
+    <div ng-repeat="course in $root.courses">
+      <h4>{{course.name}}</h4>
+    </div>
+    </div>
   </div>
-</div>
+    
+  </div>
