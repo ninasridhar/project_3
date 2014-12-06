@@ -1,8 +1,51 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 body{
   background-color: white;
   padding:0;
   margin:0;
-  font-family: 'Fredericka the Great', cursive;
+  .welcome{
+    height: 1030px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('vegetables.jpg');
+    // -webkit-filter: blur(2px);
+    // -moz-filter: blur(2px);
+    // -o-filter: blur(2px);
+    // -ms-filter: blur(2px);
+    // filter: blur(2px);
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+  }
+  .buttons{
+    position: absolute;               /* 2 */
+    top: 50%;                         /* 3 */
+    transform: translate(0, -50%);
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    a{
+      text-decoration: none;
+      font-family: 'Fredericka the Great';
+      font-size: 3.5em;
+      display: inline-block;
+      margin-top: 0.5em;
+      margin-right: 0.5em;
+      color: white;
+      background: rgba(2, 2, 2, 0.6);
+      border: 3px solid white;
+      padding: 1px 20px; 
+    }
+  }
   .nav{
     background: rgb(118, 90, 86);
     height: 60px;

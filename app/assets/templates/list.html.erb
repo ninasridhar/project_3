@@ -4,8 +4,9 @@
   </div>
 
   <div class = "col-md-6" >
+    <div>
     <input type="search" ng-model="search.$" class="form-control search-bar" >
-    <input type="search" ng-model="customFilter" class="form-control search-bar" >
+ <!--    <input type="search" ng-model="customFilter" class="form-control search-bar" > -->
     <div class = "posts" ng-repeat="post in posts | filter:search:strict | limitTo : 20 | orderBy : 'servings' : true" ng-controller = "PostsController" ng-class = "{selectedpost: post === selectedPost}" >
       <div ng-click = 'selectPost(post)' ng-hide = "post === selectedPost">
         <h4>@{{post.user.username}}</h4>
@@ -31,11 +32,13 @@
       </div>
     </div>
   </div>
+</div>
 
   <div  class = " user_box col-md-3" >
-    <div ng-controller = "CategoryController">
-    <img src="#" class = "img-circle ">
-
+    <div ng-controller = "HomeController">
+    <img src={{currentUser.avatar}} class = "img-circle ">
+      <h2>Hi, {{currentUser.name}}</h2>
+      <p>{{currentUser.bio}}</p>
     <div ng-repeat="category in $root.categories">
       <h4>{{category.name}}</h4>
     </div>
@@ -48,5 +51,4 @@
     </div>
     </div>
   </div>
-    
-  </div>
+</div>
