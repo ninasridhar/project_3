@@ -20,10 +20,15 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
   };
 
   $scope.updatePost = function(post){
-    delete $scope.editPost.course
-    delete $scope.editPost.category
-    delete $scope.editPost.user
-    $http.put('/posts/' + post.id +'.json', {post: post}).success(function(data){
+    // delete $scope.editPost.course
+    // delete $scope.editPost.category
+    // delete $scope.editPost.user
+    var data = {};
+    data.title = post.title;
+    data.category = post.category;
+    
+    $http.put('/posts/' + post.id +'.json', {data: data})
+    .success(function(data){
       $scope.clearSelectedPost();
       $scope.clearEditPost();
     });
