@@ -12,12 +12,20 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
   };
 
   $scope.setEditPost = function(post){
-    $scope.editpPost = post;
+    $scope.editPost = post;
+  };
+
+  $scope.clearEditPost = function(){
+    $scope.editPost = false;
   };
 
   $scope.updatePost = function(post){
+    delete $scope.editPost.course
+    delete $scope.editPost.category
+    delete $scope.editPost.user
     $http.put('/posts/' + post.id +'.json', {post: post}).success(function(data){
-      $scope.editPost = false;
+      $scope.clearSelectedPost();
+      $scope.clearEditPost();
     });
   };
 });

@@ -7,4 +7,9 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   belongs_to :course
+
+  def as_json(options = nil)
+    super({only: [:id, :category_id, :course_id, :servings, :summary, :title, :user_id, :method, :photo ]}.merge(options || {}))
+  end
+
 end
