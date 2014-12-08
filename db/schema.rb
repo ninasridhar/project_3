@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20141203143820) do
     t.string   "title"
     t.integer  "servings"
     t.text     "method"
+    t.text     "photo"
     t.integer  "course_id"
     t.integer  "category_id"
     t.datetime "created_at",  :null => false

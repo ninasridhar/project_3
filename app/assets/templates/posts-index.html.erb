@@ -1,8 +1,10 @@
    <div>
    <input type="search" ng-model="search.$" class="form-control search-bar" >
 <!--    <input type="search" ng-model="customFilter" class="form-control search-bar" > -->
-   <div class = "posts" ng-repeat="post in posts | filter:search:strict | limitTo : 20 | orderBy : 'created_at' : true"  ng-class = "{selectedpost: post === selectedPost}" >
-     <div ng-click = 'selectPost(post)' ng-hide = "post === selectedPost">
+   <div ng-controller = "PostController" class = "posts" ng-repeat="post in posts | filter:search:strict | limitTo : 20 | orderBy : 'created_at' : true"  ng-class = "{selectedpost: post === selectedPost}" >
+     <div ng-hide = "post === selectedPost">
+      <button ng-click="deletePost(post)">Delete Post</button>
+      <button ng-click = "selectPost(post)">Expand</button>
        <h4>@{{post.user.username}}</h4>
        <p>{{post.summary}}</p>
      </div>
