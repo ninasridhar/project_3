@@ -1,0 +1,23 @@
+app.directive('newPostForm', function(){
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: "<%=asset_path('new-post-form.html')%>"
+  };
+});
+
+app.directive('postsIndex', function(){
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: "<%=asset_path('posts-index.html')%>"
+  };
+});
+
+app.directive('userInfo', function(){
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: "<%=asset_path('user-info.html')%>"
+  };
+});

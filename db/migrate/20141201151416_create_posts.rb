@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.integer :servings
       t.text :method
+      t.text :photo
       t.integer :course_id
       t.integer :category_id
 

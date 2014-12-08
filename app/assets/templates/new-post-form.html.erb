@@ -1,0 +1,22 @@
+ <div> 
+  <h4>Add A Recipe</h4>
+  <form role = "form" name="postForm" ng-submit="postForm.$valid && addPost()">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" ng-model="newPost.title" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Summary</label>
+      <input type = "text" ng-model="newPost.summary"  class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Method</label>
+      <textarea ng-model="newPost.method" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>Course</label>
+      <input type = "number" min="1" max="10" ng-model="newPost.course_id" class="form-control" required>
+    </div>
+    <input class="btn btn-default" type = "submit">
+  </form>
+</div>

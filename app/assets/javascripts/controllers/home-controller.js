@@ -21,6 +21,15 @@ app.controller('HomeController', function($scope, $http){
       console.log('hello')
       $scope.posts.push(post);
       $scope.newPost = false;
+      $scope.postForm.$setPristine();
     })
   }
+
+  $scope.selectPost = function(post){
+      $scope.selectedPost = post;
+  };
+
+  $scope.clearSelectedPost = function(){
+    $scope.selectedPost = false;
+  };
 });
