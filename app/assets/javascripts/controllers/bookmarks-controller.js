@@ -1,5 +1,5 @@
-app.controller('BookmarkController', function($scope, $http, $rootScope){
+app.controller('BookmarkController', function($scope, $http, $){
   $http.get('/bookmarks.json').success(function(data){
-   $rootScope.bookmarks = data; 
+   $scope.bookmarks = data; 
  });
 });

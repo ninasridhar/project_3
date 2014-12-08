@@ -1,15 +1,16 @@
-app.controller('PostsController', function($scope, $http, $rootScope){
+app.controller('PostsController', function($scope, $http){
 
-  $http.get('/posts.json').success(function(data){
-    $rootScope.posts = data; 
-  });
+  // $http.get('/posts.json').success(function(data){
+  //   $rootScope.posts = data; 
+  // });
 
-  $rootScope.selectPost = function(post){
-      $rootScope.selectedPost = post;
+
+  $scope.selectPost = function(post){
+      $scope.selectedPost = post;
   };
 
-  $rootScope.clearSelectedPost = function(){
-    $rootScope.selectedPost = false;
+  $scope.clearSelectedPost = function(){
+    $scope.selectedPost = false;
   };
 });
 

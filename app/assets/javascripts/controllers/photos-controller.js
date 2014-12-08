@@ -1,5 +1,5 @@
-app.controller('PhotoController', function($scope, $http, $rootScope){
+app.controller('PhotoController', function($scope, $http){
   $http.get('/photos.json').success(function(data){
-   $rootScope.photos = data; 
+   $scope.photos = data; 
  });
 });

@@ -1,6 +1,6 @@
 // app.controller('HomeController', function($scope, $http){
 // });
-app.controller('HomeController', function($scope, $http, $rootScope){
+app.controller('HomeController', function($scope, $http){
   // $scope.categories = $rootScope.categories
   $scope.currentUser = currentUser;
 
@@ -8,7 +8,19 @@ app.controller('HomeController', function($scope, $http, $rootScope){
     $scope.categories = data;
   });
 
+  $http.get('/courses.json').success(function(data){
+    $scope.courses = data;
+  });
+
   $http.get('/posts.json').success(function(data){
     $scope.posts = data;
   });
+
+  $scope.addPost = function(){
+    $http.post('/posts.json', {post: $scope.newPost}).success(function(post){
+      console.log('hello')
+      $scope.posts.push(post);
+      $scope.newPost = false;
+    })
+  }
 });

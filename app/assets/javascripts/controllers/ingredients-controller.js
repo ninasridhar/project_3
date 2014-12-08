@@ -1,5 +1,5 @@
-app.controller('IngredientController', function($scope, $http, $rootScope){
+app.controller('IngredientController', function($scope, $http){
   $http.get('/ingredients.json').success(function(data){
-   $rootScope.ingredients = data; 
+   $scope.ingredients = data; 
  });
 });

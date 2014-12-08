@@ -1,5 +1,5 @@
-app.controller('CourseController', function($scope, $http, $rootScope){
+app.controller('CourseController', function($scope, $http){
   $http.get('/courses.json').success(function(data){
-   $rootScope.courses = data; 
+   $scope.courses = data; 
  });
 });

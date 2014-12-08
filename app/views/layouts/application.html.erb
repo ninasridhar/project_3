@@ -12,8 +12,8 @@
 </head>
 <body>
  
-  <% if current_user %>
-  <div class="nav">
+  <%# if current_user %>
+  <div>
     <%= link_to 'Log Out', destroy_user_session_path, method: :delete  %>
   <p class="notice">
     <%= notice %>
@@ -23,12 +23,12 @@
   </p>
 
   </div>
-  <% end %>
+  <%# end %>
 
 
-  <% if user_signed_in?%>
+  <%# if user_signed_in?%>
   <div ng-view></div>
-  <% end %>
+  <%# end %>
 
   <%= yield %>
   <%= javascript_tag do %>
