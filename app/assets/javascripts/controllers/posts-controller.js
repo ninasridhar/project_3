@@ -11,6 +11,11 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
     });
   };
 
+  $scope.clearPost = function(){
+    $scope.editPost = false;
+    $scope.SelectedPost = false;
+  }
+
   $scope.setEditPost = function(post){
     $scope.editPost = post;
   };
@@ -26,8 +31,18 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
     
     $http.put('/posts/' + post.id +'.json', {data: data})
     .success(function(data){
-      $scope.clearSelectedPost();
-      $scope.clearEditPost();
+      $scope.clearPost();
+    });
+  };
+
+  $scope.addComment = function(){
+    var data  = {};
+    data.comment = $scope.newComment.comment;
+    data.user_id = 1;
+    data.post_id = $scope.post.id 
+    $http.post('/comments.json', {comment: data}).success(function(comment){
+      $scope.post.comments.push(comment);
+      $scope.newComment = false;
     });
   };
 });

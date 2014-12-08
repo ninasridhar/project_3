@@ -28,10 +28,16 @@
    </p>
    <span ng-click="setEditPost(post)" class="glyphicon glyphicon-edit"></span>
    <span ng-click = "clearSelectedPost()" class="glyphicon glyphicon-minus"></span>
+   <div class = "commentsbox" ng-repeat = "comment in post.comments">
+      {{comment.user.name}}: {{comment.comment}}
+   </div>
+   <input type="text" ng-model="newComment.comment" class="comment-input form-control" required>
+   <button class="update-btn btn btn-default" ng-click="addComment(newComment)">Comment</button>
  </div>
 </div>
 <div ng-show = "post === editPost">
     <div >
+      <span ng-click = "clearPost()" class="glyphicon glyphicon-minus"></span>
       <label>Title</label>
       <td ng-show="editPost"><input  class="form-control" ng-model="editPost.title" /></td>
     </div>

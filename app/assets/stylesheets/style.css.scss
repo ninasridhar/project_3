@@ -96,6 +96,16 @@ body{
     &:hover{
       background: rgb(235, 221, 194);
     }
+    .comment-input{
+      margin-top: 10px;
+    }
+    .commentsbox{
+      margin: 2px;
+      padding: 5px;
+      background: white;
+      border: 1px solid lightgray;
+      border-radius: 3px;
+    }
   }
   .update-btn{
     margin-top: 10px;

@@ -8,6 +8,11 @@ app.controller('HomeController', function($scope, $http){
     $scope.categories = data;
   });
 
+  // $http.get('/users.json').success(function(data){
+  //   $scope.users = data;
+  // });
+
+
   $http.get('/courses.json').success(function(data){
     $scope.courses = data;
   });
