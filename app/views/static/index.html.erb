@@ -1,0 +1,9 @@
+<% if !current_user %>
+<div class = "welcome"></div>
+<div class = "buttons">
+  <div class = "row">
+    <%= link_to 'Login', new_user_session_path, class: "col-xs-6 col-xs-offset-3 btn btn-default", target: "_self" %>
+    <%= link_to 'Join', new_user_registration_path, class: "col-xs-6 col-xs-offset-3 btn btn-default", target: "_self" %>
+  </div>
+</div>
+<% end %>

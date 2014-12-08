@@ -11,31 +11,17 @@
   <base href='/'>
 </head>
 <body>
-  <div class = "welcome"></div>
+ 
   <% if current_user %>
   <div class="nav">
     <%= link_to 'Log Out', destroy_user_session_path, method: :delete  %>
-    <p class="notice">
-      <%= notice %>
-    </p>
-    <p class="alert">
-      <%= alert %>
-    </p>
+  <p class="notice">
+    <%= notice %>
+  </p>
+  <p class="alert">
+    <%= alert %>
+  </p>
 
-  </div>
-  <% else %>
-
-  <div class = "buttons">
-    <div class = "row">
-      <%= link_to 'Login', new_user_session_path, class: "col-xs-6 col-xs-offset-3 btn btn-default", target: "_self" %>
-      <%= link_to 'Join', new_user_registration_path, class: "col-xs-6 col-xs-offset-3 btn btn-default", target: "_self" %>
-    </div>
-    <p class="notice">
-      <%= notice %>
-    </p>
-    <p class="alert">
-      <%= alert %>
-    </p>
   </div>
   <% end %>
 
