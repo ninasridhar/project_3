@@ -20,9 +20,6 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
   };
 
   $scope.updatePost = function(post){
-    // delete $scope.editPost.course
-    // delete $scope.editPost.category
-    // delete $scope.editPost.user
     var data = {};
     data.title = post.title;
     data.category = post.category;
