@@ -6,7 +6,6 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
   }
 
    $http.get('/comments.json').success(function(data){
-    console.log(data)
     $scope.comments = data;
   });
 
@@ -42,7 +41,7 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
   $scope.addComment = function(){
     var data  = {};
     data.comment = $scope.newComment.comment;
-    data.user_id = 1;
+    data.user_id = $scope.currentUser.id;
     data.post_id = $scope.post.id 
     $http.post('/comments.json', {comment: data}).success(function(comment){
       $scope.post.comments.push(comment);

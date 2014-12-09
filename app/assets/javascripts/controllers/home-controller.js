@@ -2,6 +2,7 @@
 // });
 app.controller('HomeController', function($scope, $http){
   // $scope.categories = $rootScope.categories
+
   $scope.currentUser = currentUser;
 
   $http.get('/categories.json').success(function(data){

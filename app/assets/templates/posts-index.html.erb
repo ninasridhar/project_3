@@ -4,45 +4,16 @@
  <div ng-controller = "PostController" class = "posts" ng-repeat="post in posts | filter:search:strict | limitTo : 20 | orderBy : 'servings' : true"  ng-class = "{selectedpost: post === selectedPost}" >
   <div ng-hide = "post === editPost">
    <div ng-hide = "post === selectedPost">
-    <span ng-click="deletePost(post)" class="glyphicon glyphicon-remove"></span>
-    <span ng-click = "selectPost(post)" class="glyphicon glyphicon-plus"></span>
     <h4>@{{post.user.username}}</h4>
     <p>{{post.summary}}</p>
+    <span ng-click = "selectPost(post)" class="glyphicon glyphicon-plus"></span>
   </div>
   <div   ng-show="post === selectedPost" >
-   <h4>{{post.title}}</h4>
-   <p>
-     Added by: {{post.user.name}}
-   </p>
-   <p>
-     Servings: {{post.servings}}
-   </p>
-   <p>
-     Instructions: {{post.method}}
-   </p>
-   <p>
-     Course: {{post.course.name}}
-   </p>
-   <p> 
-     Category: {{post.category.name}}
-   </p>
-   <span ng-click="setEditPost(post)" class="glyphicon glyphicon-edit"></span>
-   <span ng-click = "clearSelectedPost()" class="glyphicon glyphicon-minus"></span>
-   <div class = "commentsbox" ng-repeat = "comment in post.comments">
-      <b>{{comment.user.username}}</b>    {{comment.comment}}
-   </div>
-   <input type="text" ng-model="newComment.comment" class="comment-input form-control" required>
-   <button class="update-btn btn btn-default" ng-click="addComment(newComment)">Comment</button>
+    <show-post></show-post>
  </div>
 </div>
 <div ng-show = "post === editPost">
-    <div >
-      <span ng-click = "clearPost()" class="glyphicon glyphicon-minus"></span>
-      <label>Title</label>
-      <td ng-show="editPost"><input  class="form-control" ng-model="editPost.title" /></td>
-    </div>
-    <button class=" update-btn  btn btn-default" ng-click="updatePost(editPost)">Update</button>
-
+    <edit-post></edit-post>
 </div>
 </div>
 </div>
