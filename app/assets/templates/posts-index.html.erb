@@ -6,8 +6,9 @@
       <div ng-hide = "post === selectedPost">
         <h4>@{{post.user.username}}</h4>
         <p>{{post.summary}}</p>
-        <span ng-click = "selectPost(post)" class="glyphicon glyphicon-plus"></span>
-        <span ng-click = "bookmarkPost(post)" class="bookmark glyphicon glyphicon-bookmark"></span>
+        <span ng-click = "selectPost(post)" class="glyphicon glyphicon-fullscreen"></span>
+        <span ng-if = "isBookmarked(post, currentUser) != true" ng-click = "bookmarkPost(post)" class="glyphicon glyphicon-bookmark"></span>
+        <span ng-if = "isBookmarked(post, currentUser) === true" class="bookmark glyphicon glyphicon-bookmark"></span>
       </div>
       <div   ng-show="post === selectedPost" >
         <show-post></show-post>
