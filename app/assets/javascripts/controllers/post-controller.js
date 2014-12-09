@@ -1,5 +1,5 @@
-// app.controller('PostController', function($scope, $routeParams, $http, $location){
-var PostController = function PostController($scope, $http, $routeParams, $location) {
+app.controller('PostController', ['$scope', '$routeParams', '$http', '$location', function($scope, $routeParams, $http, $location) {
+// var PostController = function PostController($scope, $http, $routeParams, $location) {
   if ($routeParams.id){  
     $http.get('/posts/' + $routeParams.id + '.json').success(function(data){
       $scope.post = data
@@ -65,6 +65,6 @@ var PostController = function PostController($scope, $http, $routeParams, $locat
     });
   };
 
-});
+}]);
 
-PostController.$inject = ['$scope', '$http', '$routeParams', '$location'];
+// PostController.$inject = ['$scope', '$http', '$routeParams', '$location'];

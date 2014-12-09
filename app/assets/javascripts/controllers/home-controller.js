@@ -1,7 +1,6 @@
-// app.controller('HomeController', function($scope, $http){
-// });
-// app.controller('HomeController', function($scope, $http){
-var HomeController = function HomeController($scope, $http) {
+
+app.controller('HomeController', ['$scope', '$http', function($scope, $http) {
+// var HomeController = function HomeController($scope, $http) {
   // $scope.categories = $rootScope.categories
 
   $scope.currentUser = currentUser;
@@ -38,6 +37,6 @@ var HomeController = function HomeController($scope, $http) {
   $scope.clearSelectedPost = function(){
     $scope.selectedPost = false;
   };
-});
+}]) ;
 
-HomeController.$inject = ['$scope', '$http'];
+// HomeController.$inject = ['$scope', '$http'];
