@@ -1,8 +1,8 @@
 app.controller('PostController', function($scope, $routeParams, $http, $location){
-  if ($routeParams.id){
-  $http.get('/posts/' + $routeParams.id + '.json').success(function(data){
-    $scope.post = data
-  });
+  if ($routeParams.id){  
+    $http.get('/posts/' + $routeParams.id + '.json').success(function(data){
+      $scope.post = data
+    });
   }
 
    $http.get('/comments.json').success(function(data){
@@ -66,4 +66,4 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
 
 });
 
-'PostController'.$inject = ['$scope', '$http'];
+PostController.$inject = ['$scope', '$http', '$routeParams', '$location'];

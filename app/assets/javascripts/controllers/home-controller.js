@@ -39,4 +39,4 @@ app.controller('HomeController', function($scope, $http){
   };
 });
 
-'HomeController'.$inject = ['$scope', '$http'];
+HomeController.$inject = ['$scope', '$http'];

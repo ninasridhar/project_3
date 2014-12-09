@@ -1,5 +1,5 @@
 
-app.controller('CommentController', function($scope, $http){
+// app.controller('CommentController', function($scope, $http){
   
-});
+// });
 
