@@ -6,6 +6,7 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
   }
 
    $http.get('/comments.json').success(function(data){
+    console.log(data)
     $scope.comments = data;
   });
 
@@ -32,7 +33,6 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
     var data = {};
     data.title = post.title;
     data.category = post.category;
-    
     $http.put('/posts/' + post.id +'.json', {data: data})
     .success(function(data){
       $scope.clearPost();
@@ -41,9 +41,7 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
 
   $scope.addComment = function(){
     var data  = {};
-    debugger;
     data.comment = $scope.newComment.comment;
-    data.user = 
     data.user_id = 1;
     data.post_id = $scope.post.id 
     $http.post('/comments.json', {comment: data}).success(function(comment){
