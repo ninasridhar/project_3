@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :category_id, :course_id, :servings, :summary, :title, :user_id, :method, :photo, :course, :user, :category, :id
+  attr_accessible :category_id, :course_id, :servings, :summary, :title, :user_id, :method, :photo, :course, :user, :category, :id, :comment_attributes
 
   has_many :photos
   has_many :ingredients
@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   belongs_to :course
+
+  accepts_nested_attributes_for :comments
 
   def as_json(options = nil)
     super({only: [:id, :category_id, :course_id, :servings, :summary, :title, :user_id, :method, :photo ]}.merge(options || {}))

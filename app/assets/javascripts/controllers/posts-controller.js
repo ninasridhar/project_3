@@ -5,6 +5,10 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
   });
   }
 
+   $http.get('/comments.json').success(function(data){
+    $scope.comments = data;
+  });
+
   $scope.deletePost = function(post){
     $http.delete('/posts/' + post.id +'.json').success(function(data){
       $scope.posts.splice( $scope.posts.indexOf(post), 1);
@@ -37,7 +41,9 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
 
   $scope.addComment = function(){
     var data  = {};
+    debugger;
     data.comment = $scope.newComment.comment;
+    data.user = 
     data.user_id = 1;
     data.post_id = $scope.post.id 
     $http.post('/comments.json', {comment: data}).success(function(comment){

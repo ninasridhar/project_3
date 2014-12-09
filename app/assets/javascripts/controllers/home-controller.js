@@ -8,9 +8,9 @@ app.controller('HomeController', function($scope, $http){
     $scope.categories = data;
   });
 
-  // $http.get('/users.json').success(function(data){
-  //   $scope.users = data;
-  // });
+  $http.get('/comments.json').success(function(data){
+    $scope.comments = data;
+  });
 
 
   $http.get('/courses.json').success(function(data){
@@ -23,7 +23,6 @@ app.controller('HomeController', function($scope, $http){
 
   $scope.addPost = function(){
     $http.post('/posts.json', {post: $scope.newPost}).success(function(post){
-      console.log('hello')
       $scope.posts.push(post);
       $scope.newPost = false;
       $scope.postForm.$setPristine();
