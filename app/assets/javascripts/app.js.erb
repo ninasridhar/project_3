@@ -1,39 +1,20 @@
+(function() {
 var app = angular.module('potLuckApp', ['ngAnimate', 'ngRoute']); 
 
 app.config(function($routeProvider, $locationProvider){
   $routeProvider.when('/', {
     controller: 'HomeController',
     templateUrl: "<%= asset_path('list.html')%>"
-    resolve: {
-          'myParam': ['myService', '$route', function(myService, $route) {
-            return myService.get($route.current.params.queryId);
-          }]
-        }
   });
 
   $routeProvider.when('/users/login', {
     controller: 'HomeController',
-    resolve: {
-          'myParam': ['myService', '$route', function(myService, $route) {
-            return myService.get($route.current.params.queryId);
-          }]
-        }
   });
   $routeProvider.when('/users/sign_up', {
     controller: 'HomeController',
-    resolve: {
-          'myParam': ['myService', '$route', function(myService, $route) {
-            return myService.get($route.current.params.queryId);
-          }]
-        }
   });
   $routeProvider.when('/users/edit', {
     controller: 'HomeController',
-    resolve: {
-          'myParam': ['myService', '$route', function(myService, $route) {
-            return myService.get($route.current.params.queryId);
-          }]
-        }
   });
 
   $locationProvider.html5Mode(true);
@@ -42,4 +23,5 @@ app.config(function($routeProvider, $locationProvider){
   });
 
 });
+}.call(this));
 
