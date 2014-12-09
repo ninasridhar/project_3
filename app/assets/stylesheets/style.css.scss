@@ -98,6 +98,12 @@ body{
         color: red;
       }
     }
+    .star{
+      color: gold;
+      &:hover{
+        color: yellow;
+      }
+    }
     &:hover{
       background: rgb(235, 221, 194);
     }

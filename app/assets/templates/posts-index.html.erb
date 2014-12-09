@@ -11,11 +11,15 @@
         <span ng-click = "selectPost(post)" class="glyphicon glyphicon-fullscreen"></span>
         <div ng-hide = "bookmarked" >
         <span ng-click = "bookmarkPost(post)" class="glyphicon glyphicon-bookmark"></span>
+        <span ng-click = "favouritePost(post)" class="glyphicon glyphicon-star"></span>
       </div>
         <div ng-show = "bookmarked">
         <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked === true" ng-click = "unbookmarkPost(bookmark)" class="bookmark glyphicon glyphicon-bookmark"></span>
-        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked === false" ng-click = "rebookmarkPost(bookmark)" class="glyphicon glyphicon-bookmark"></span>
+        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked != true" ng-click = "rebookmarkPost(bookmark)" class="glyphicon glyphicon-bookmark"></span>
+        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.favourited === true" ng-click = "unfavouritePost(bookmark)" class="star glyphicon glyphicon-star"></span>
+        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.favourited != true" ng-click = "refavouritePost(bookmark)" class="glyphicon glyphicon-star"></span>
         </div>
+
       </div>
       <div   ng-show="post === selectedPost" >
         <show-post></show-post>

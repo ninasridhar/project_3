@@ -1,6 +1,5 @@
 app.controller('PostController', ['$scope', '$routeParams', '$http', '$location', function($scope, $routeParams, $http, $location) {
 
-  $scope.bookmarked = false;
 
   if ($routeParams.id){  
     $http.get('/posts/' + $routeParams.id + '.json').success(function(data){
@@ -23,16 +22,19 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     var bookmarks = $scope.bookmarks;
     for (var i = 0 ; i < bookmarks.length; i++) {
       if ((post.id === bookmarks[i].post_id) && (user.id === bookmarks[i].user_id)){
-        return true
+        $scope.bookmarked = true;
       };
     }; 
   };
+
+  $scope.isBookmarked($scope.post, currentUser);
 
   $scope.rebookmarkPost = function(bookmark){
     var id = bookmark.id
     bookmark.bookmarked = true;
     $http.put('/bookmarks/' + id +'.json', {bookmark: bookmark}).success(function(bookmark){
       console.log(bookmark);
+      $scope.bookmarked = true;
     });
   };
   
@@ -41,12 +43,42 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     bookmark.bookmarked = false;
     $http.put('/bookmarks/' + id +'.json', {bookmark: bookmark}).success(function(bookmark){
       console.log(bookmark);
+      $scope.bookmarked = true;
     });
   };
 
   $scope.bookmarkPost = function(post){
     var data  = {};
     data.bookmarked = true;
+    data.user_id = $scope.currentUser.id;
+    data.post_id = post.id 
+    $http.post('/bookmarks.json', {bookmark: data}).success(function(bookmark){
+      $scope.post.bookmarks.push(bookmark);
+      $scope.bookmarked = true;
+    });
+  };
+
+  $scope.refavouritePost = function(bookmark){
+    var id = bookmark.id
+    bookmark.favourited = true;
+    $http.put('/bookmarks/' + id +'.json', {bookmark: bookmark}).success(function(bookmark){
+      console.log(bookmark);
+      $scope.bookmarked = true;
+    });
+  };
+  
+  $scope.unfavouritePost = function(bookmark){
+    var id = bookmark.id
+    bookmark.favourited = false;
+    $http.put('/bookmarks/' + id +'.json', {bookmark: bookmark}).success(function(bookmark){
+      console.log(bookmark);
+      $scope.bookmarked = true;
+    });
+  };
+
+  $scope.favouritePost = function(post){
+    var data  = {};
+    data.favourited = true;
     data.user_id = $scope.currentUser.id;
     data.post_id = post.id 
     $http.post('/bookmarks.json', {bookmark: data}).success(function(bookmark){
