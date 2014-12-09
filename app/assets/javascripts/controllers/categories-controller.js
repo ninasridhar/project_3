@@ -12,8 +12,8 @@
 //   };
 // });
 
-app.controller('CategoryController', function($scope, $http, $scope){
-  $http.get('/categories.json').success(function(data){
-   $scope.categories = data; 
- });
-});
+// app.controller('CategoryController', function($scope, $http, $scope){
+//   $http.get('/categories.json').success(function(data){
+//    $scope.categories = data; 
+//  });
+// });

@@ -33,3 +33,5 @@ app.controller('HomeController', function($scope, $http){
     $scope.selectedPost = false;
   };
 });
+
+'HomeController'.$inject = ['$scope', '$http'];

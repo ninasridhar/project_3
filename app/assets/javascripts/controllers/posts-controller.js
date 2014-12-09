@@ -31,3 +31,5 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
     });
   };
 });
+
+'PostController'.$inject = ['$scope', '$http'];
