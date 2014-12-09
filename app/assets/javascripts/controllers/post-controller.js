@@ -1,5 +1,6 @@
 app.controller('PostController', ['$scope', '$routeParams', '$http', '$location', function($scope, $routeParams, $http, $location) {
 
+  $scope.bookmarked = false;
 
   if ($routeParams.id){  
     $http.get('/posts/' + $routeParams.id + '.json').success(function(data){
@@ -49,7 +50,8 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     data.user_id = $scope.currentUser.id;
     data.post_id = post.id 
     $http.post('/bookmarks.json', {bookmark: data}).success(function(bookmark){
-      $scope.bookmarks.push(bookmark);
+      $scope.post.bookmarks.push(bookmark);
+      $scope.bookmarked = true;
     });
   };
 
