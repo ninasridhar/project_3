@@ -10,9 +10,6 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     $scope.comments = data;
   });
 
-    $http.get('/bookmarks.json').success(function(data){
-     $scope.bookmarks = data;
-   });
 
   $scope.deletePost = function(post){
     $http.delete('/posts/' + post.id +'.json').success(function(data){
@@ -54,6 +51,17 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     });
   };
 
+  $scope.isBookmarked = function(post, user){
+    var bookmarks = $scope.bookmarks;
+    for (var i = 0 ; i < bookmarks.length; i++) {
+      if (post.id === bookmarks[i].post_id){
+        if (user.id === bookmarks[i].user_id){
+        return true;
+        };
+      };
+    };
+  };
+
   $scope.bookmarkPost = function(post){
     var data  = {};
     data.bookmarked = true;
@@ -61,7 +69,6 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     data.post_id = $scope.post.id 
     $http.post('/bookmarks.json', {bookmark: data}).success(function(bookmark){
       $scope.bookmarks.push(bookmark);
-      console.log(bookmark);
     });
   };
 

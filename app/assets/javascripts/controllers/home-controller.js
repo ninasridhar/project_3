@@ -13,6 +13,9 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http) {
     $scope.comments = data;
   });
 
+   $http.get('/bookmarks.json').success(function(data){
+    $scope.bookmarks = data;
+  });
 
   $http.get('/courses.json').success(function(data){
     $scope.courses = data;

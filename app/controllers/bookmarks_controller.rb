@@ -3,7 +3,6 @@ class BookmarksController < ApplicationController
   # GET /bookmarks.json
   def index
     @bookmarks = Bookmark.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bookmarks }
