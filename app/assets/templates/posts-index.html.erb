@@ -1,14 +1,21 @@
 <div>
  <input type="search" ng-model="search.$" class="form-control search-bar" >
+
  <!--    <input type="search" ng-model="customFilter" class="form-control search-bar" > -->
-  <div ng-controller = "PostController" class = "posts" ng-repeat="post in posts | filter:search:strict | limitTo : 20 | orderBy : 'servings' : true"  ng-class = "{selectedpost: post === selectedPost}" >
+ <div>
+  <div ng-controller="PostController" class = "posts" ng-repeat="post in posts | filter:search:strict | limitTo : 20 | orderBy : 'servings' : true"  ng-class = "{selectedpost: post === selectedPost}">
     <div ng-hide = "post === editPost">
       <div ng-hide = "post === selectedPost">
         <h4>@{{post.user.username}}</h4>
         <p>{{post.summary}}</p>
         <span ng-click = "selectPost(post)" class="glyphicon glyphicon-fullscreen"></span>
-        <span ng-if = "isBookmarked(post, currentUser) != true" ng-click = "bookmarkPost(post)" class="glyphicon glyphicon-bookmark"></span>
-        <span ng-if = "isBookmarked(post, currentUser) === true" class="bookmark glyphicon glyphicon-bookmark"></span>
+        <div ng-hide = "isBookmarked(post, currentUser)" >
+        <span ng-click = "bookmarkPost(post)" class="glyphicon glyphicon-bookmark"></span>
+      </div>
+        <div>
+        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked === true" ng-click = "unbookmarkPost(bookmark)" class="bookmark glyphicon glyphicon-bookmark"></span>
+        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked === false" ng-click = "rebookmarkPost(bookmark)" class="glyphicon glyphicon-bookmark"></span>
+        </div>
       </div>
       <div   ng-show="post === selectedPost" >
         <show-post></show-post>
@@ -17,5 +24,6 @@
     <div ng-show = "post === editPost">
       <edit-post></edit-post>
     </div>
+  </div>
   </div>
 </div>
