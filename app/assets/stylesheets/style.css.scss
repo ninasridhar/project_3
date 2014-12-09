@@ -92,6 +92,12 @@ body{
         color: gray;
       }  
     }
+    .bookmark{
+      color: maroon;
+      &:hover{
+        color: red;
+      }
+    }
     &:hover{
       background: rgb(235, 221, 194);
     }

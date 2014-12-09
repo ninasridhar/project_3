@@ -9,6 +9,10 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
     $scope.comments = data;
   });
 
+    $http.get('/bookmarks.json').success(function(data){
+     $scope.bookmarks = data;
+   });
+
   $scope.deletePost = function(post){
     $http.delete('/posts/' + post.id +'.json').success(function(data){
       $scope.posts.splice( $scope.posts.indexOf(post), 1);
@@ -48,4 +52,16 @@ app.controller('PostController', function($scope, $routeParams, $http, $location
       $scope.newComment = false;
     });
   };
+
+  $scope.bookmarkPost = function(post){
+    var data  = {};
+    data.bookmarked = true;
+    data.user_id = $scope.currentUser.id;
+    data.post_id = $scope.post.id 
+    $http.post('/bookmarks.json', {bookmark: data}).success(function(bookmark){
+      $scope.bookmarks.push(bookmark);
+      console.log(bookmark);
+    });
+  };
+
 });
