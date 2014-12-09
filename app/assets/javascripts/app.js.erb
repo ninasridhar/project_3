@@ -1,7 +1,6 @@
-(function() {
 var app = angular.module('potLuckApp', ['ngAnimate', 'ngRoute']); 
 
-app.config(function($routeProvider, $locationProvider){
+app.config([$routeProvider, function($routeProvider, $locationProvider){
   $routeProvider.when('/', {
     controller: 'HomeController',
     templateUrl: "<%= asset_path('list.html')%>"
@@ -22,6 +21,7 @@ app.config(function($routeProvider, $locationProvider){
     redirectTo: '/'
   });
 
-});
-}.call(this));
+}]);
+
+
 
