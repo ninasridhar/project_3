@@ -15,5 +15,7 @@
 //= require angular
 //= require angular-animate
 //= require angular-route-1-2-0
+//= require home-controller
+//= require post-controller
 //= require_tree .
 

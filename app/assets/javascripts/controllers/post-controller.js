@@ -1,4 +1,5 @@
-app.controller('PostController', function($scope, $routeParams, $http, $location){
+// app.controller('PostController', function($scope, $routeParams, $http, $location){
+var PostController = function PostController($scope, $http, $routeParams, $location) {
   if ($routeParams.id){  
     $http.get('/posts/' + $routeParams.id + '.json').success(function(data){
       $scope.post = data

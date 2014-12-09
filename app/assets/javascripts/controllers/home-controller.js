@@ -1,6 +1,7 @@
 // app.controller('HomeController', function($scope, $http){
 // });
-app.controller('HomeController', function($scope, $http){
+// app.controller('HomeController', function($scope, $http){
+var HomeController = function HomeController($scope, $http) {
   // $scope.categories = $rootScope.categories
 
   $scope.currentUser = currentUser;
