@@ -5,7 +5,6 @@ html {
   box-sizing: inherit;
 }
 body{
-  font-family: 'Fredericka the Great';
   background-color: white;
   padding:0;
   margin:0;
@@ -93,8 +92,24 @@ body{
         color: gray;
       }  
     }
+    .bookmark{
+      color: maroon;
+      &:hover{
+        color: red;
+      }
+    }
     &:hover{
       background: rgb(235, 221, 194);
+    }
+    .comment-input{
+      margin-top: 10px;
+    }
+    .commentsbox{
+      margin: 2px;
+      padding: 5px;
+      background: white;
+      border: 1px solid lightgray;
+      border-radius: 3px;
     }
   }
   .update-btn{

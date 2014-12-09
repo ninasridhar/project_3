@@ -1,0 +1,29 @@
+<div>
+  <span ng-click = "clearSelectedPost()" class="glyphicon glyphicon-minus"></span>
+  <h4>{{post.title}}</h4>
+  <p>
+    Added by: {{post.user.name}}
+  </p>
+  <p>
+    Servings: {{post.servings}}
+  </p>
+  <p>
+    Instructions: {{post.method}}
+  </p>
+  <p>
+    Course: {{post.course.name}}
+  </p>
+  <p> 
+    Category: {{post.category.name}}
+  </p>
+  <div ng-if = "post.user_id == currentUser.id">
+  <span ng-click="setEditPost(post)" class="glyphicon glyphicon-edit"></span>
+  <span ng-click="deletePost(post)" class="glyphicon glyphicon-remove"></span>
+</div>
+  <div class = "commentsbox" ng-repeat = "comment in post.comments">
+     <b>{{comment.user.username}}</b>    {{comment.comment}}
+  </div>
+  <input type="text" ng-model="newComment.comment" class="comment-input form-control" placeholder = "Post a comment on this recipe..." required>
+  <button class="update-btn btn btn-default" ng-click="addComment(newComment)">Comment</button>
+
+</div>

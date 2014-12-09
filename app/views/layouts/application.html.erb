@@ -32,7 +32,7 @@
 
   <%#= yield %>
   <%= javascript_tag do %>
-  var currentUser = <%= raw current_user.to_json %>;
+  var currentUser = <%#= raw current_user.to_json %> <%= raw User.last.to_json%>;
   <% end %>
 </body>
 </html>
