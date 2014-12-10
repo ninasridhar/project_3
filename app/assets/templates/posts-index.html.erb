@@ -14,9 +14,9 @@
         <span ng-click = "favouritePost(post)" class="glyphicon glyphicon-star"></span>
       </div>
         <div ng-show = "bookmarked">
-        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked === true" ng-click = "unbookmarkPost(bookmark)" class="bookmark glyphicon glyphicon-bookmark"></span>
+        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked" ng-click = "unbookmarkPost(bookmark)" class="bookmark glyphicon glyphicon-bookmark"></span>
         <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked != true" ng-click = "rebookmarkPost(bookmark)" class="glyphicon glyphicon-bookmark"></span>
-        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.favourited === true" ng-click = "unfavouritePost(bookmark)" class="star glyphicon glyphicon-star"></span>
+        <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.favourited" ng-click = "unfavouritePost(bookmark)" class="star glyphicon glyphicon-star"></span>
         <span ng-repeat = "bookmark in post.bookmarks" data-id = "{{bookmark.id}}" ng-if = "bookmark.favourited != true" ng-click = "refavouritePost(bookmark)" class="glyphicon glyphicon-star"></span>
         </div>
 
