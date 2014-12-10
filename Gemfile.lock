@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (3.2.19)
       actionpack (= 3.2.19)
@@ -125,6 +126,7 @@ GEM
       activesupport (= 3.2.19)
       bundler (~> 1.0)
       railties (= 3.2.19)
+    rails-assets-RRSSB (1.6.5)
     railties (3.2.19)
       actionpack (= 3.2.19)
       activesupport (= 3.2.19)
@@ -188,6 +190,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   rails (= 3.2.19)
+  rails-assets-RRSSB
   ransack
   sass-rails (~> 3.2.3)
   simple_hashtag

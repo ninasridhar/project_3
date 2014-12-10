@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'rails', '3.2.19'
 
@@ -14,6 +15,7 @@ gem 'bootstrap-sass'
 gem 'simple_hashtag'
 gem 'ransack'
 gem 'angularjs-rails'
+gem 'rails-assets-RRSSB'
 
 # Gems used only for assets and not required
 # in production environments by default.

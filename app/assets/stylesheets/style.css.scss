@@ -138,3 +138,9 @@ body{
     margin-top: 10px;
   }
 }
+
+@media (max-width: 580px) {
+  .rrssb-text {
+    display: none;
+  }
+}
