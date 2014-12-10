@@ -33,6 +33,7 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http) {
     })
   }
 
+
   $scope.selectPost = function(post){
       $scope.selectedPost = post;
   };

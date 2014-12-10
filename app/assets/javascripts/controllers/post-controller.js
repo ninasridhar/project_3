@@ -17,7 +17,7 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
       $scope.bookmark = data
     });
   }
-
+  
   $scope.isBookmarked = function(post, user){
     var bookmarks = $scope.bookmarks;
     for (var i = 0 ; i < bookmarks.length; i++) {

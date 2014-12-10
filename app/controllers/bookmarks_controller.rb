@@ -5,7 +5,7 @@ class BookmarksController < ApplicationController
     @bookmarks = Bookmark.all
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @bookmarks }
+      format.json { render json: @bookmarks, :include => :post }
     end
   end
 

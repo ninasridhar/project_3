@@ -57,7 +57,7 @@
 
 <%#= yield %>
 <%= javascript_tag do %>
-var currentUser = <%#= raw current_user.to_json %> <%= raw User.last.to_json%>;
+var currentUser = <%#= raw current_user.to_json %> <%= raw User.first.to_json({:include => {:bookmarks => { :include => {:post => {:include => [:user, :category, :course, :bookmarks, :comments => {:include => {:user => {:only => :username} }}]}}}}})%>;
 <% end %>
 </body>
 </html>

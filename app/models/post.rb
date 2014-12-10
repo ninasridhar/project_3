@@ -15,4 +15,8 @@ class Post < ActiveRecord::Base
     super({only: [:id, :category_id, :course_id, :servings, :summary, :title, :user_id, :method, :photo ]}.merge(options || {}))
   end
 
+  def current_user_posts(current_user)
+    posts.where("user_id == ?", current_user.id)
+  end
+
 end

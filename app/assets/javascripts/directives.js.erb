@@ -14,6 +14,15 @@ app.directive('postsIndex', function(){
   };
 });
 
+app.directive('bookmarkedPosts', function(){
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: "<%=asset_path('bookmarked-posts.html')%>"
+  };
+});
+
+
 app.directive('showPost', function(){
   return {
     restrict: 'E',
@@ -43,5 +52,23 @@ app.directive('userInfo', function(){
     restrict: 'E',
     replace: true,
     templateUrl: "<%=asset_path('user-info.html')%>"
+  };
+});
+
+app.directive('postTabs', function(){
+  return {
+    restrict: 'A',
+    replace: true,
+    templateUrl: "<%=asset_path('post-tabs.html')%>",
+    controller: function(){
+      this.tab = 1;
+      this.selectTab = function(currentTab){
+        this.tab = currentTab;
+      }; 
+      this.isSelected = function(currentTab){
+        return this.tab === currentTab;
+      };
+    },
+    controllerAs: 'tabs'
   };
 });

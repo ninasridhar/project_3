@@ -1,0 +1,20 @@
+<div  class = "tabs">
+  <div >
+  <ul class = "posts">
+    <li ng-class = "{highlighted: tabs.isSelected(1)}">
+      <h3><a href ng-click = "tabs.selectTab(1)">All</a></h3>
+    </li>
+    <li ng-class = "{highlighted: tabs.isSelected(2)}">
+      <a href ng-click = "tabs.selectTab(2)">Bookmarked</a>
+    </li>
+    <li ng-class = "{highlighted: tabs.isSelected(3)}">
+      <a href ng-click = "tabs.selectTab(3)">Favourites</a>
+    </li>
+  </ul>
+  </div>
+  <div ng-show = "tabs.isSelected(1)">
+    <posts-index></posts-index>
+  </div>
+  <div ng-show = "tabs.isSelected(2)"><bookmarked-posts></bookmarked-posts></div>
+  <div ng-show = "tabs.isSelected(3)"></div>
+</div>
