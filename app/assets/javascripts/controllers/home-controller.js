@@ -4,6 +4,7 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http) {
   // $scope.categories = $rootScope.categories
 
   $scope.currentUser = currentUser;
+  console.log(currentUser.id)
 
   $http.get('/categories.json').success(function(data){
     $scope.categories = data;

@@ -3,21 +3,21 @@
 
  <!--    <input type="search" ng-model="customFilter" class="form-control search-bar" > -->
  <div>
-  <div ng-controller="PostController" class = "posts" ng-repeat="post in posts | filter:search:strict | limitTo : 20 | orderBy : 'servings' : true"  ng-model = "bookmarked" ng-class = "{selectedpost: post === selectedPost}">
+  <div ng-controller="PostController" class = "posts" ng-repeat="post in posts | filter:search:strict | limitTo : 20 | orderBy : 'servings' : true"   ng-class = "{selectedpost: post === selectedPost}">
     <div ng-hide = "post === editPost">
       <div ng-hide = "post === selectedPost">
         <h4>@{{post.user.username}}</h4>
         <p>{{post.summary}}</p>
         <span ng-click = "selectPost(post)" class="glyphicon glyphicon-fullscreen"></span>
         <div ng-hide = "bookmarked" >
-        <span ng-click = "bookmarkPost(post)" class="glyphicon glyphicon-bookmark"></span>
-        <span ng-click = "favouritePost(post)" class="glyphicon glyphicon-star"></span>
+        <span ng-click = "bookmarkPost(currentUser, post)" class="glyphicon glyphicon-bookmark"></span>
+        <span ng-click = "favouritePost(currentUser, post)" class="glyphicon glyphicon-star"></span>
       </div>
         <div ng-show = "bookmarked">
-        <span ng-repeat = "bookmark in post.bookmarks | filter:{user_id:currentUser.id} " data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked" ng-click = "unbookmarkPost(bookmark)" class="bookmark glyphicon glyphicon-bookmark"></span>
-        <span ng-repeat = "bookmark in post.bookmarks  | filter:{user_id:currentUser.id} " data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked != true" ng-click = "rebookmarkPost(bookmark)" class="glyphicon glyphicon-bookmark"></span>
-        <span ng-repeat = "bookmark in post.bookmarks | filter:{user_id:currentUser.id} " data-id = "{{bookmark.id}}" ng-if = "bookmark.favourited" ng-click = "unfavouritePost(bookmark)" class="star glyphicon glyphicon-star"></span>
-        <span ng-repeat = "bookmark in post.bookmarks  | filter:{user_id:currentUser.id} " data-id = "{{bookmark.id}}" ng-if = "bookmark.favourited != true" ng-click = "refavouritePost(bookmark)" class="glyphicon glyphicon-star"></span>
+        <span ng-repeat = "bookmark in post.bookmarks | filter:{user_id:currentUser.id} " data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked" ng-click = "unbookmarkPost(currentUser, bookmark)" class="bookmark glyphicon glyphicon-bookmark"></span>
+        <span ng-repeat = "bookmark in post.bookmarks  | filter:{user_id:currentUser.id} " data-id = "{{bookmark.id}}" ng-if = "bookmark.bookmarked != true" ng-click = "rebookmarkPost(currentUser, bookmark)" class="glyphicon glyphicon-bookmark"></span>
+        <span ng-repeat = "bookmark in post.bookmarks | filter:{user_id:currentUser.id} " data-id = "{{bookmark.id}}" ng-if = "bookmark.favourited" ng-click = "unfavouritePost(currentUser, bookmark)" class="star glyphicon glyphicon-star"></span>
+        <span ng-repeat = "bookmark in post.bookmarks  | filter:{user_id:currentUser.id} " data-id = "{{bookmark.id}}" ng-if = "bookmark.favourited != true" ng-click = "refavouritePost(currentUser, bookmark)" class="glyphicon glyphicon-star"></span>
         </div>
 
       </div>
