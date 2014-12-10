@@ -30,6 +30,14 @@ app.directive('editPost', function(){
   };
 });
 
+app.directive('rrssbuttons', function(){
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: "<%=asset_path('rrssbuttons.html')%>"
+  };
+});
+
 app.directive('userInfo', function(){
   return {
     restrict: 'E',
