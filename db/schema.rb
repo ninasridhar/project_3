@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20141203143820) do
     t.integer  "post_id"
     t.boolean  "bookmarked"
     t.boolean  "favourited"
+    t.string   "search"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

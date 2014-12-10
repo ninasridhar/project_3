@@ -5,7 +5,7 @@ class CreateBookmarks < ActiveRecord::Migration
       t.integer :post_id
       t.boolean :bookmarked
       t.boolean :favourited
-
+      t.string :search
       t.timestamps
     end
   end

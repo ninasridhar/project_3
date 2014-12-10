@@ -23,6 +23,7 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     for (var i = 0 ; i < bookmarks.length; i++) {
       if ((post.id === bookmarks[i].post_id) && (user.id === bookmarks[i].user_id)){
         $scope.bookmarked = true;
+        $scope.bookmarker = "bookmarks";
       };
     }; 
   };
@@ -35,6 +36,7 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     $http.put('/bookmarks/' + id +'.json', {bookmark: bookmark}).success(function(bookmark){
       console.log(bookmark);
       $scope.bookmarked = true;
+      $scope.bookmarker = "bookmarks";
     });
   };
   
@@ -44,6 +46,7 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     $http.put('/bookmarks/' + id +'.json', {bookmark: bookmark}).success(function(bookmark){
       console.log(bookmark);
       $scope.bookmarked = true;
+      $scope.bookmarker = "bookmarks";
     });
   };
 
@@ -51,10 +54,12 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     var data  = {};
     data.bookmarked = true;
     data.user_id = $scope.currentUser.id;
-    data.post_id = post.id 
+    data.post_id = post.id;
+    data.search = "bookmarks favourites"; 
     $http.post('/bookmarks.json', {bookmark: data}).success(function(bookmark){
       $scope.post.bookmarks.push(bookmark);
       $scope.bookmarked = true;
+      $scope.bookmarker = "bookmarks";
     });
   };
 
@@ -64,6 +69,7 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     $http.put('/bookmarks/' + id +'.json', {bookmark: bookmark}).success(function(bookmark){
       console.log(bookmark);
       $scope.bookmarked = true;
+      $scope.bookmarker = "bookmarks";
     });
   };
   
@@ -73,6 +79,7 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     $http.put('/bookmarks/' + id +'.json', {bookmark: bookmark}).success(function(bookmark){
       console.log(bookmark);
       $scope.bookmarked = true;
+      $scope.bookmarker = "bookmarks";
     });
   };
 
@@ -80,10 +87,12 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     var data  = {};
     data.favourited = true;
     data.user_id = $scope.currentUser.id;
-    data.post_id = post.id 
+    data.post_id = post.id;
+    data.search = "bookmarks favourites";  
     $http.post('/bookmarks.json', {bookmark: data}).success(function(bookmark){
       $scope.post.bookmarks.push(bookmark);
       $scope.bookmarked = true;
+      $scope.bookmarker = "bookmarks";
     });
   };
 

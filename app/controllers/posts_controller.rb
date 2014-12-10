@@ -9,8 +9,8 @@ class PostsController < ApplicationController
     @posts = @q.result.includes(:ingredients)
     respond_to do |format|
       format.html # index.html.erb
-      # format.json { render json: @posts, :include => [:user, :category, :course, :bookmarks => {:where => {:user_id == current_user.id}}, :comments => {:include => {:user => {:only => :username} }}]}
-      format.json {render  @posts.to_json(:methods =>:current_user_posts)}
+      format.json { render json: @posts, :include => [:user, :category, :course, :bookmarks, :comments => {:include => {:user => {:only => :username} }}]}
+      # format.json {render  @posts.to_json(:methods =>:current_user_posts)}
     end
   end
 
