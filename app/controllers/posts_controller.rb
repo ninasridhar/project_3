@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @post }
+      format.json { render json: @post, :include => [:user, :category, :course, :bookmarks, :comments => {:include => {:user => {:only => :username}}}]}
     end
   end
 
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
+        format.json { render json: @post, status: :created, location: @post,  :include => [:user, :category, :course, :bookmarks, :comments => {:include => {:user => {:only => :username} }}] }
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }

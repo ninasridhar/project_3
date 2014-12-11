@@ -5,25 +5,39 @@ html {
   box-sizing: inherit;
 }
 body{
+  font-family: 'Raleway';
   background-color: white;
   padding:0;
   margin:0;
+  h1, h2, h3, h5, h6{
+    font-family: 'Leckerli One', cursive;
+    color: rgb(140, 65, 46);
+  }
+  .homepage{
+    color: rgb(218, 223, 216);
+  }
   .welcome{
     height: 1030px;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url('vegetables.jpg');
-    -webkit-filter: blur(2px);
-    -moz-filter: blur(2px);
-    -o-filter: blur(2px);
-    -ms-filter: blur(2px);
-    filter: blur(2px);
+    background-image: url('pancakes.png');
     position: fixed;
     left: 0;
     right: 0;
     z-index: 1;
     display: block;
+  }
+  .deviseform{
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    h2{
+      color: rgb(140, 65, 46);
+    }
+    a{
+      color: rgb(115, 94, 45);
+    }
   }
   .buttons{
     position: absolute;               /* 2 */
@@ -33,16 +47,22 @@ body{
     left: 0;
     right: 0;
     z-index: 9999;
-    a{
-      text-decoration: none;
-      font-size: 3.5em;
-      display: inline-block;
-      margin-top: 0.5em;
-      margin-right: 0.5em;
-      color: white;
-      background: rgba(2, 2, 2, 0.6);
-      border: 3px solid white;
-      padding: 1px 20px; 
+    .mainbuttons{
+      a{
+        font-family: 'Leckerli One', cursive;
+        text-decoration: none;
+        font-size: 3.5em;
+        display: inline-block;
+        margin-top: 1em;
+        margin-right: 1em;
+        color: rgb(201, 63, 47);
+        background: rgba(255, 255, 255, 0.6);
+        border: 3px solid white;
+        padding: 1px 20px; 
+        &:hover{
+          background: rgba(220, 193, 140, 0.8);
+        }
+      }
     }
   }
   .nav{
@@ -69,10 +89,11 @@ body{
     margin-top: 10px;
   }
   p{
-    font-family: 'Vollkorn';
+   font-family: 'Raleway';
   }
   .search-bar{
     margin-top: 10px;
+    margin-bottom: 10px;
   }
   .posts{
     background: rgb(235, 231, 228);
@@ -92,16 +113,26 @@ body{
         color: gray;
       }  
     }
+    .glyphicon-bookmark{
+      &:hover{
+        color: rgb(184, 22, 33);
+      }
+    }
     .bookmark{
       color: maroon;
       &:hover{
-        color: red;
+        color: rgb(184, 22, 33);
+      }
+    }
+    .glyphicon-star{
+      &:hover{
+        color: gold;
       }
     }
     .star{
       color: gold;
       &:hover{
-        color: yellow;
+        color: gold;
       }
     }
     &:hover{
@@ -118,19 +149,20 @@ body{
       border-radius: 3px;
     }
   }
-  .socialbuttons{
-    margin: 10px;
-  }
   .update-btn{
     margin-top: 10px;
     margin-bottom: 10px;
   }
+  .editbutton{
+    margin-top: 10px;
+  }
   .selectedpost{
     background: rgb(235, 221, 194);
   }
-  img{
-    width: 10em;
-    height: 10em;
+  .avatar{
+    margin: 15px 20%;
+    width: 9em;
+    height: 9em;
     border: 1px solid black;
     border-radius: 100%;
   }
@@ -139,6 +171,9 @@ body{
     border: 1px solid rgb(118, 90, 86);
     border-radius: 10px;
     margin-top: 10px;
+    h2{
+      color: rgb(201, 63, 47);
+    }
   }
 }
 

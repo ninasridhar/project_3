@@ -1,4 +1,11 @@
-<div>
+<div class = "row">
+  <div class = "col-md-12 col-sm-4">
+  <img src="{{currentUser.avatar}}">
+  </div>
+  <div class= "col-md-12 col-sm-8">
   <h2>Hi, {{currentUser.name}}</h2>
   <p>{{currentUser.bio}}</p>
+  <p>{{currentUser.email}}</p>
+  <p>Member Since: {{currentUser.created_at | date : "mediumDate"}}</p>
+  </div>
 </div>

@@ -2,9 +2,9 @@
 app.controller('HomeController', ['$scope', '$http', function($scope, $http) {
 // var HomeController = function HomeController($scope, $http) {
   // $scope.categories = $rootScope.categories
+  $scope.numLimit = 15;
 
   $scope.currentUser = currentUser;
-  console.log(currentUser.id)
 
   $http.get('/categories.json').success(function(data){
     $scope.categories = data;
@@ -26,7 +26,10 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http) {
     $scope.posts = data;
   });
 
+
+
   $scope.addPost = function(){
+      $scope.newPost.user_id = currentUser.id;
     $http.post('/posts.json', {post: $scope.newPost}).success(function(post){
       $scope.posts.push(post);
       $scope.newPost = false;

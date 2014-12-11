@@ -5,31 +5,7 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
     $scope.bookmarks = data;
   });
 
-  $scope.sanitizedata = function(bookmarks, user){
-    var posts = $scope.posts;
-    for (var j = 0 ; j < posts.length; j++) {
-      var bookmarks = posts[j].bookmarks;
-    for (var i = 0 ; i < bookmarks.length; i++) {
-      if (bookmarks[i].user_id != user.id){
-        var index = bookmarks.indexOf(bookmarks[i]);
-        bookmarks.splice(index, 1);
-        console.log(bookmarks);
-      };
-    };
-  };
-}
-
-  // $.each(data, function(index, post){
-  //   $.each(post.bookmarks, function(index, bookmark){
-  //     if(bookmark.user_id !== currentUser.id){
-  //          var index = post.bookmarks.indexOf(bookmark)
-  //         post.bookmarks.splice(index, 1);
-  //       console.log(bookmarks);
-  // }  
-  // })
-  // });
-
-  $scope.sanitizedata($scope.bookmarks, currentUser);
+  
 
   if ($routeParams.id){  
     $http.get('/posts/' + $routeParams.id + '.json').success(function(data){
@@ -163,5 +139,23 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
       $scope.newComment = false;
     });
   };
+
+  $scope.sanitizedata = function(user){
+    var posts = $scope.posts;
+    for (var j = 0 ; j < posts.length; j++) {
+      var bookmarks = posts[j].bookmarks;
+      if(bookmarks != undefined){
+        for (var i = 0 ; i < bookmarks.length; i++) {
+          if (bookmarks[i].user_id != user.id){
+            var index = bookmarks.indexOf(bookmarks[i]);
+            bookmarks.splice(index, 1);
+            console.log(bookmarks);
+          };
+        };
+      };
+    };
+  };
+
+  $scope.sanitizedata( currentUser);
 
 }]);

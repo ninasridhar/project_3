@@ -16,9 +16,6 @@
   <p> 
     Category: {{post.category.name}}
   </p>
-  <div ng-if = "bookmarked" >
-    {{bookmarked}}
-  </div>
   <div ng-if = "post.user_id == currentUser.id">
     <span ng-click="setEditPost(post)" class="glyphicon glyphicon-edit"></span>
     <span ng-click="deletePost(post)" class="glyphicon glyphicon-remove"></span>

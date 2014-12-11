@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :category_id, :course_id, :servings, :summary, :title, :user_id, :bookmarks, :method, :photo, :course, :user, :category, :id, :comment_attributes
+  attr_accessible :category_id, :course_id, :servings, :summary, :title, :user_id, :bookmarks, :method, :photo, :course, :user, :category, :id, :comment_attributes, :created_at
 
   has_many :photos
   has_many :ingredients
