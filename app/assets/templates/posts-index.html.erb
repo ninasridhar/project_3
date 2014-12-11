@@ -12,10 +12,10 @@
   <div ng-controller="PostController" class = "posts" ng-repeat="post in posts | filter:search:strict | limitTo : numLimit | orderBy : 'created_at' : true"   ng-class = "{selectedpost: post === selectedPost}">
     <div ng-hide = "post === editPost">
       <div ng-hide = "post === selectedPost">
+        <span ng-click = "selectPost(post)" class="glyphicon glyphicon-fullscreen"></span> 
         <h4>@{{post.user.username}}</h4>
-        <h5>{{post.title}}</h5>
+        <h5>{{post.title}} </h5>
         <p>{{post.summary}}</p>
-        <span ng-click = "selectPost(post)" class="glyphicon glyphicon-fullscreen"></span>
         <div ng-hide = "bookmarked" >
         <span ng-click = "bookmarkPost(currentUser, post)" class="glyphicon glyphicon-bookmark"></span>
         <span ng-click = "favouritePost(currentUser, post)" class="glyphicon glyphicon-star"></span>

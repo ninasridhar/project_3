@@ -3,7 +3,7 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http) {
 // var HomeController = function HomeController($scope, $http) {
   // $scope.categories = $rootScope.categories
   $scope.numLimit = 15;
-
+  $scope.addnewPost = false;
   $scope.currentUser = currentUser;
 
   $http.get('/categories.json').success(function(data){
@@ -45,6 +45,7 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http) {
   $scope.clearSelectedPost = function(){
     $scope.selectedPost = false;
   };
+
 }]) ;
 
 // HomeController.$inject = ['$scope', '$http'];

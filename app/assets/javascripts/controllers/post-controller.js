@@ -122,7 +122,8 @@ app.controller('PostController', ['$scope', '$routeParams', '$http', '$location'
   $scope.updatePost = function(post){
     var data = {};
     data.title = post.title;
-    data.category = post.category;
+    data.category_id = post.category_id;
+    data.course_id = post.course_id;
     $http.put('/posts/' + post.id +'.json', {data: data})
     .success(function(data){
       $scope.clearPost();

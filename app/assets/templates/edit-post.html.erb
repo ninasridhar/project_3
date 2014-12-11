@@ -3,6 +3,18 @@
   <span ng-click = "clearPost()" class="glyphicon glyphicon-minus"></span>
   <label>Title</label>
   <td ng-show="editPost"><input  class="form-control" ng-model="editPost.title" /></td>
+  <label>Summary</label>
+  <td ng-show="editPost"><input  class="form-control" ng-model="editPost.summary" /></td>
+  <label>Photo</label>
+  <td ng-show="editPost"><input class="form-control" ng-model="editPost.photo" /></td>
+  <label>Method</label>
+  <td ng-show="editPost"><textarea class="form-control" ng-model="editPost.method" ></textarea></td>
+  <label>Servings</label>
+  <td ng-show="editPost"><input type = "number" class="form-control" ng-model="editPost.servings" /></td>
+  <label>Course</label>
+  <td ng-show="editPost"><select class="form-control dropdown" ng-model="editPost.course_id" ng-options="course.id as course.name for course in courses"></select></td>
+  <label>Category</label>
+  <td ng-show="editPost"><select class="form-control dropdown" ng-model="editPost.category_id" ng-options="category.id as category.name for category in categories"></select></td>
 </div>
 <button class=" update-btn  btn btn-default" ng-click="updatePost(editPost)">Update</button>
 <div>

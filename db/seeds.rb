@@ -49,6 +49,7 @@ Category.create!(name: 'Meat')
   user_id = (1..20).to_a.sample
   summary = Faker::Lorem.paragraph(2)
   title = Faker::Lorem.word
+  photo = "eggs.png"
   servings = (1..15).to_a.sample
   course_id = (1..6).to_a.sample
   method = Faker::Lorem.paragraph(5)

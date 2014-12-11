@@ -9,7 +9,7 @@ body{
   background-color: white;
   padding:0;
   margin:0;
-  h1, h2, h3, h5, h6{
+  h1, h2, h3, h4, h6{
     font-family: 'Leckerli One', cursive;
     color: rgb(140, 65, 46);
   }
@@ -40,8 +40,8 @@ body{
     }
   }
   .buttons{
-    position: absolute;               /* 2 */
-    top: 50%;                         /* 3 */
+    position: absolute;
+    top: 50%;   
     transform: translate(0, -50%);
     position: fixed;
     left: 0;
@@ -66,18 +66,28 @@ body{
     }
   }
   .nav{
-    background: rgb(118, 90, 86);
-    height: 60px;
-    color: white;
+    // background: rgb(101, 69, 54);
+    background-image: url('pancakes.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     width: 100%;
-    margin-top: -10px;
-    z-index: 1;
-    position: fixed;
-    line-height: 16px;
-    a{
-      color: white;
-      font-size: 16px;
-      margin-left: 10px;
+    h1{
+      width: 30%;
+      float: right;
+      color: rgb(218, 184, 146);
+    }
+    .userbuttons{
+      margin: 20px;
+    }
+  }
+  .footer{
+    background: rgb(101, 69, 54);
+    width: 100%;
+    .info{
+      margin: 0;
+      padding: 10px;
+      color: rgb(218, 184, 146);
     }
   }
   .container{
@@ -96,11 +106,14 @@ body{
     margin-bottom: 10px;
   }
   .posts{
-    background: rgb(235, 231, 228);
+    background: white;
     border: 1px solid rgb(118, 90, 86);
     border-radius: 10px;
     padding: 10px;
     margin-top: 10px;
+    &:hover{
+      background: rgb(235, 231, 228);
+    }
     .glyphicon-remove{
       color: maroon;
       &:hover{
@@ -126,17 +139,14 @@ body{
     }
     .glyphicon-star{
       &:hover{
-        color: gold;
+        color: darkgold;
       }
     }
     .star{
-      color: gold;
+      color: DarkGoldenRod;
       &:hover{
         color: gold;
       }
-    }
-    &:hover{
-      background: rgb(235, 221, 194);
     }
     .comment-input{
       margin-top: 10px;
@@ -148,6 +158,9 @@ body{
       border: 1px solid lightgray;
       border-radius: 3px;
     }
+    .foodpics{
+      width: 100%;
+    }
   }
   .update-btn{
     margin-top: 10px;
@@ -157,7 +170,7 @@ body{
     margin-top: 10px;
   }
   .selectedpost{
-    background: rgb(235, 221, 194);
+    background: rgb(235, 231, 228);
   }
   .avatar{
     margin: 15px 20%;
@@ -172,8 +185,16 @@ body{
     border-radius: 10px;
     margin-top: 10px;
     h2{
-      color: rgb(201, 63, 47);
+      color: rgb(101, 69, 54);
     }
+    .addnewpost{
+      margin-bottom: 20px;
+    }
+  }
+  hr{
+    height: 1px;
+    border: 0;
+    background: rgb(101, 69, 54);
   }
 }
 

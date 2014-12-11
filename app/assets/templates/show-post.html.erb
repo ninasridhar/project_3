@@ -4,6 +4,9 @@
   <p>
     Added by: {{post.user.name}}
   </p>
+  <div ng-if = "post.photo">
+  <img  class = "foodpics" src="{{post.photo}}">
+  </div>
   <p>
     Servings: {{post.servings}}
   </p>
